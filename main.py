@@ -22,7 +22,7 @@ from python_anticaptcha import AnticaptchaClient, NoCaptchaTaskProxylessTask
 
 #Anti Captcha info
 api_key = 'API_KEY_HERE'
-site_key = '6LeuMjIUAAAAAODtAglF13UiJys0y05EjZugej6b'
+site_key = 'Discord site key needed'
 
 #Email Gen
 rand = uuid.uuid4()
