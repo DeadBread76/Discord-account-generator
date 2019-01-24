@@ -49,14 +49,7 @@ for n in range(1):
     print(name)
 
 #Launch Bot    
-executable_path = "chromedriver.exe"
-os.environ["webdriver.chrome.driver"] = executable_path
-
-chrome_options = Options()
-chrome_options.add_extension('anticaptcha.crx')
-#enable this if you wish
-#chrome_options.add_extension('adblock.crx')
-driver = webdriver.Chrome(executable_path=executable_path, chrome_options=chrome_options)
+driver = webdriver.Firefox()
 driver.get("https://discordapp.com/register")
 
 
