@@ -21,8 +21,8 @@ from python_anticaptcha import AnticaptchaClient, NoCaptchaTaskProxylessTask
 
 
 #Anti Captcha info
-api_key = 'API_KEY_HERE'
-site_key = 'Discord site key needed'
+api_key = 'key_here'
+site_key = 'nubQ83kz2YYRrleJaYf_CYbvDZ6lXVl-NL_MWX1Uj9Y'
 
 #Email Gen
 rand = str(uuid.uuid4())
