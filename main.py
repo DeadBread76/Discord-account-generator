@@ -25,14 +25,12 @@ api_key = 'API_KEY_HERE'
 site_key = 'Discord site key needed'
 
 #Email Gen
-rand = uuid.uuid4()
-link = 'fyii.de/trashmail/'
+rand = str(uuid.uuid4())
+link = 'fyii.de/trashmail/' # when using quotes it will be a string see function above if you want your variables to be integers or strings.
 email_address = '@fyii.de'
-html_extension = '.html'
-email_link = str(link)+str(rand)+str(html_extension)
-print (email_link)
-email =str(rand)+str(email_address)
-print (email)
+email_link = link+rand+'.html'
+email = rand+email_address
+print(email+'\n'+email_link) # just make things neater :D
 
 #Name Gen (Adds a few seconds onto the time it takes to create an account but who fucking cares)
 print ("Generating a name, should only take a sec!")
