@@ -27,16 +27,12 @@ site_key = '6LeuMjIUAAAAAODtAglF13UiJys0y05EjZugej6b'
 #Email Gen
 rand = uuid.uuid4()
 link = 'fyii.de/trashmail/'
-emil = '@fyii.de'
-htmll= '.html'
-str(rand)
-str(link)
-str(emil)
-str(htmll)
-emlink = str(link)+str(rand)+str(htmll)
-print (emlink)
-emaile =str(rand)+str(emil)
-print (emaile)
+email_address = '@fyii.de'
+html_extension = '.html'
+email_link = str(link)+str(rand)+str(html_extension)
+print (email_link)
+email =str(rand)+str(email_address)
+print (email)
 
 #Name Gen (Adds a few seconds onto the time it takes to create an account but who fucking cares)
 print ("Generating a name, should only take a sec!")
