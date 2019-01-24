@@ -5,6 +5,9 @@ import uuid
 import selenium
 import requests
 import urllib.request
+import time
+from time import sleep, time
+from random import uniform, randint
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
@@ -12,7 +15,14 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import NoSuchElementException
+from python_anticaptcha import AnticaptchaClient, NoCaptchaTaskProxylessTask
 
+
+#Anti Captcha info
+api_key = 'API_KEY_HERE'
+site_key = '6LeuMjIUAAAAAODtAglF13UiJys0y05EjZugej6b'
 
 #Email Gen
 rand = uuid.uuid4()
@@ -34,17 +44,12 @@ word_url = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type
 response = urllib.request.urlopen(word_url)
 long_txt = response.read().decode()
 words = long_txt.splitlines()
-
 upper_words = [word for word in words if word[0].isupper()]
 name_words  = [word for word in upper_words if not word.isupper()]
 one_name = ' '.join([name_words[random.randint(0, len(name_words))] for i in range(2)])
-
-
 def rand_name():
    name = ' '.join([name_words[random.randint(0, len(name_words))] for i in range(2)])
    return name
-
-
 for n in range(1):
     name = rand_name()
     print(name)
@@ -72,7 +77,14 @@ element.send_keys("deadasssecretpassword123")
 
 element.send_keys(Keys.RETURN)
 
-driver.get (str(link)+str(rand)+str(htmll))
+url = 'https://discordapp.com/register'
+client = AnticaptchaClient(api_key)
+task = NoCaptchaTaskProxylessTask(url, site_key)
+job = client.createTask(task)
+print("Waiting for solution from AntiCaptcha")
+job.join()
+response = job.get_solution_response()
+print("Received solution", response)
+driver.execute_script('document.getElementById("g-recaptcha-response").innerHTML = "%s"' % response)
 
-
-
+driver.find_element_by_xpath('//button[@type="submit" and @class="btn-std"]').click()
