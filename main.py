@@ -61,13 +61,13 @@ driver.get("https://discordapp.com/register")
 
 
 element = driver.find_element_by_name("email")
-element.send_keys(emaile)
+element.send_keys(email)
 
 element = driver.find_element_by_name("username")
 element.send_keys(name)
 
 element = driver.find_element_by_name("password")
-element.send_keys("deadasssecretpassword123")
+element.send_keys(rand)
 
 element.send_keys(Keys.RETURN)
 
